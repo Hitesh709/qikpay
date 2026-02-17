@@ -1,0 +1,28 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.13.8'
+
+      - run: flutter pub get
+        working-directory: qikpay_flutter
+
+      - run: flutter build apk --release
+        working-directory: qikpay_flutter
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qikpay-apk
+          path: qikpay_flutter/build/app/outputs/flutter-apk/app-release.apk
+
