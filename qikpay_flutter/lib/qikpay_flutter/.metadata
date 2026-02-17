@@ -1,0 +1,4 @@
+version:
+  revision: test
+  channel: stable
+project_type: app
