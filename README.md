@@ -1,0 +1,1 @@
+QikPay Project v3 - 10 points = 1 crypto token
